@@ -10,15 +10,16 @@ const apiUsersRouterLogin = require('../auth/login');
 
 router.get("/", async(req, res) => {
     //Query Title
-    if (req.query.title) {
+    if (req.query.name) {
         const film = await Films.findOne({
-            where: { title: req.query.title }
+            where: { title: req.query.name }
         });
         res.json(film);
     }
     //Query All
     else {
         const film = await Films.findAll({ attributes: ['title', 'releaseDate', 'img'] });
+
         res.json(film);
     }
 });

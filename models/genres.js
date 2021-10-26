@@ -10,7 +10,13 @@ module.exports = (sequelize, type) => {
             autoIncrement: true
         },
         name: Sequelize.STRING,
-        associatedMovies: Sequelize.STRING,
+        associatedMovies: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'films',
+                key: 'id'
+            }
+        },
         img: Sequelize.BLOB
 
     }, {

@@ -25,7 +25,7 @@ router.get("/", async(req, res) => {
     }
     //Query Movies
     if (req.query.movies) {
-        const character = await Character.findOne({
+        const character = await Character.findAll({
             where: { associatedMovies: req.query.movies }
         });
         res.json(character);

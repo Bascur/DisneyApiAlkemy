@@ -13,7 +13,14 @@ module.exports = (sequelize, type) => {
         age: Sequelize.INTEGER,
         peso: Sequelize.FLOAT,
         history: Sequelize.STRING,
-        associatedMovies: Sequelize.STRING,
+        associatedMovies: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'films',
+                key: 'id',
+
+            }
+        },
         img: Sequelize.BLOB
     }, {
         timestamps: false
